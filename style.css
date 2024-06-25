@@ -19,3 +19,14 @@ style {
     text-align: center;
     text-transform: capitalize;
 }
+
+.vid1 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    align-items: center;
+}
+
+.jumlah {
+    text-align: center;
+    color: white;
+}

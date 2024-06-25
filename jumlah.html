@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Perhitungan Total Bayar</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="jumlah">
+    <style>
+        body {
+            background-image: url(https://m.media-amazon.com/images/S/pv-target-images/405fb170eaf0f269465e13f863568b8b7244ac8aa143c32a30c02f913aacd79b.jpg);
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            min-width: 100px;
+        }
+    </style>
+    <h2>Perhitungan Total Bayar</h2>
+    <form id="formPembelian">
+        <label for="nama">Nama Barang:</label>
+        <input type="text" id="nama" name="nama" required><br><br>
+        <label for="harga">Harga Barang:</label>
+        <input type="number" id="harga" name="harga" min="0" required><br><br>
+        <label for="jumlah">Jumlah Barang:</label>
+        <input type="number" id="jumlah" name="jumlah" min="1" required><br><br>
+        <button type="submit">Hitung Total Bayar</button>
+    </form>
+    <div id="hasilPerhitungan"></div>
+
+    <script>
+        document.getElementById("formPembelian").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var namaBarang = document.getElementById("nama").value;
+            var hargaBarang = parseInt(document.getElementById("harga").value);
+            var jumlahBarang = parseInt(document.getElementById("jumlah").value);
+
+            var totalBayar;
+            var diskon = 0;
+
+            if (jumlahBarang >= 3) {
+                diskon = 0.1 * hargaBarang;
+            }
+
+            totalBayar = (hargaBarang * jumlahBarang) - diskon;
+
+            document.getElementById("hasilPerhitungan").innerHTML = "Nama Barang: " + namaBarang + "<br>" +
+                                                                    "Harga Barang: " + hargaBarang + "<br>" +
+                                                                    "Jumlah Barang: " + jumlahBarang + "<br>" +
+                                                                    "Diskon: " + diskon + "<br>" +
+                                                                    "Total Bayar: " + totalBayar;
+        });
+    </script>
+</body>
+</html>
